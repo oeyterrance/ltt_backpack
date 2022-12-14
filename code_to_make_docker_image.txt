@@ -1,5 +1,5 @@
 #Removes the old docker image
-docker rmi -f 3695e0f97002
+docker rmi -f c26e6351b121
 
 #Builds the new docker image
 docker build -t ltt_backpack:ltt_backpack /mnt/user/Documents/ltt_backpack
@@ -7,6 +7,6 @@ docker build -t ltt_backpack:ltt_backpack /mnt/user/Documents/ltt_backpack
 #Runs the new image in a docker container, removes the log file, and removes the 
 #container (Unraid)
 #!/bin/bash
-: > $(docker inspect --format='{{.LogPath}}' 3695e0f97002)
-docker run --name ltt_backpack -v /mnt/user/Documents/ltt_backpack:/app 3695e0f97002
+: > $(docker inspect --format='{{.LogPath}}' c26e6351b121)
+docker run --name ltt_backpack -v /mnt/user/Documents/ltt_backpack:/app c26e6351b121
 docker rm ltt_backpack
